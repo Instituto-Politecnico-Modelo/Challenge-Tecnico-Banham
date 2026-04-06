@@ -1,0 +1,60 @@
+/* ============================================
+   index.css - Reset y variables CSS globales
+   ============================================ */
+
+/* Variables CSS */
+:root {
+  --color-primary: #646cff;
+  --color-primary-hover: #535bf2;
+  --color-background: #ffffff;
+  --color-text: #213547;
+  --color-border: #e2e8f0;
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --border-radius: 8px;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
