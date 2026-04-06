@@ -1,5 +1,6 @@
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
+import JuegoContador from './components/JuegoContador/JuegoContador'
 import './App.css'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <div className="app">
       <Header />
       <main className="main-content">
-        <h1>Bienvenido al Challenge Técnico Banham</h1>
+        <JuegoContador />
       </main>
       <Footer />
     </div>

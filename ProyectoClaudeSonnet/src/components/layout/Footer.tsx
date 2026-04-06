@@ -7,7 +7,7 @@ function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <p className={styles.text}>
-          © {currentYear} Challenge Técnico Banham. Todos los derechos reservados.
+          &copy; {currentYear} JuegoContador. Todos los derechos reservados.
         </p>
       </div>
     </footer>

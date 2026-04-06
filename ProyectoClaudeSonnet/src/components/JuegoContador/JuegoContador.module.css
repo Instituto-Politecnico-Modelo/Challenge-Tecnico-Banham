@@ -1,0 +1,166 @@
+.container {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #1a1a2e;
+  border-radius: 20px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #a78bfa;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+/* Record badge */
+.record {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 50px;
+  padding: 0.4rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.recordLabel {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.recordValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+/* Status area */
+.status {
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.statusIdle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.statusCountdown {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #a78bfa;
+  animation: popIn 0.25s ease-out;
+}
+
+.statusPlaying {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.statusFinished {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f472b6;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Click counter */
+.clickCounter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.25rem;
+}
+
+.clickNumber {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #a78bfa;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.05s ease;
+}
+
+.clickLabel {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 0.25rem;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btnStart {
+  padding: 0.75rem 1.75rem;
+  background-color: #646cff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 110px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btnStart:hover:not(:disabled) {
+  background-color: #535bf2;
+  transform: translateY(-2px);
+}
+
+.btnStart:disabled {
+  background-color: #2d2f5e;
+  color: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnClick {
+  padding: 0.75rem 2rem;
+  background-color: #10b981;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 130px;
+  user-select: none;
+  transition: background-color 0.1s ease, transform 0.08s ease;
+}
+
+.btnClick:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+.btnClick:active:not(:disabled) {
+  transform: scale(0.92);
+  background-color: #047857;
+}
+
+.btnClick:disabled {
+  background-color: #064e3b;
+  color: #374151;
+  cursor: not-allowed;
+}

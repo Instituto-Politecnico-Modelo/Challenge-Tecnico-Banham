@@ -1,14 +1,19 @@
+import type { ChangeEvent } from 'react'
 import styles from './Input.module.css'
 
-/**
- * Componente Input reutilizable
- * @param {string} label - Etiqueta del input
- * @param {string} type - Tipo de input (text, email, password, etc.)
- * @param {string} placeholder
- * @param {string} value
- * @param {function} onChange
- * @param {string} error - Mensaje de error
- */
+interface InputProps {
+  label?: string
+  type?: string
+  placeholder?: string
+  value?: string
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  error?: string
+  id?: string
+  name?: string
+  disabled?: boolean
+  className?: string
+}
+
 function Input({
   label,
   type = 'text',
@@ -20,8 +25,7 @@ function Input({
   name,
   disabled = false,
   className = '',
-  ...rest
-}) {
+}: InputProps) {
   return (
     <div className={`${styles.wrapper} ${className}`}>
       {label && (
@@ -38,7 +42,6 @@ function Input({
         onChange={onChange}
         disabled={disabled}
         className={`${styles.input} ${error ? styles.inputError : ''}`}
-        {...rest}
       />
       {error && <span className={styles.errorMessage}>{error}</span>}
     </div>

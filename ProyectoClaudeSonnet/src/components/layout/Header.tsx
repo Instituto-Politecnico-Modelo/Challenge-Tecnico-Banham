@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <span className={styles.logo}>Challenge Banham</span>
+        <span className={styles.logo}>JuegoContador</span>
       </div>
     </header>
   )

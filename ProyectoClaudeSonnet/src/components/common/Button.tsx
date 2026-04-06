@@ -1,13 +1,16 @@
+import type { ReactNode } from 'react'
 import styles from './Button.module.css'
 
-/**
- * Componente Button reutilizable
- * @param {string} variant - 'primary' | 'secondary' | 'danger'
- * @param {string} size - 'sm' | 'md' | 'lg'
- * @param {boolean} disabled
- * @param {function} onClick
- * @param {React.ReactNode} children
- */
+interface ButtonProps {
+  children: ReactNode
+  variant?: 'primary' | 'secondary' | 'danger'
+  size?: 'sm' | 'md' | 'lg'
+  disabled?: boolean
+  onClick?: () => void
+  type?: 'button' | 'submit' | 'reset'
+  className?: string
+}
+
 function Button({
   children,
   variant = 'primary',
@@ -16,15 +19,13 @@ function Button({
   onClick,
   type = 'button',
   className = '',
-  ...rest
-}) {
+}: ButtonProps) {
   return (
     <button
       type={type}
       className={`${styles.btn} ${styles[variant]} ${styles[size]} ${className}`}
       disabled={disabled}
       onClick={onClick}
-      {...rest}
     >
       {children}
     </button>
