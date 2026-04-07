@@ -216,6 +216,36 @@ Para la revisión de calidad, leyó todos los archivos `.tsx` y `.ts` del proyec
 
 ---
 
+## Comparación con ChatGPT5
+
+En paralelo a este proyecto, yo desarrollé la misma aplicación JuegoContador usando ChatGPT5. Es importante aclarar el punto de partida de cada herramienta: yo arranqué con Claude Sonnet 4.6 a través de GitHub Copilot sin darle casi ningún contexto previo del repositorio, el modelo partió prácticamente desde cero. ChatGPT5, en cambio, se tomó el tiempo de explorar e investigar la estructura interna del repositorio antes de empezar a generar código, lo que le dio una ventaja de contexto desde el inicio. Con esa diferencia en mente, la comparación igualmente me resultó útil para evaluar cómo responde cada herramienta ante el mismo objetivo concreto.
+
+### Cantidad de iteraciones necesarias
+
+Yo resolví el proyecto con ChatGPT5 en tres prompts claros. Con Claude Sonnet 4.6 necesité siete iteraciones, incluyendo rondas para corregir React Router que se incluyó sin pedirlo, un bug de timing en la cuenta regresiva, errores de encoding y un archivo de tipos faltante. Yo valoro que ChatGPT5 requirió menos correcciones post-generación para llegar a un resultado funcional equivalente.
+
+### Estructura del código generado
+
+Yo observé que ChatGPT5 generó una separación más granular desde el primer momento: creó una carpeta `types/` para los tipos compartidos y un servicio dedicado `recordStorage.ts` para aislar la persistencia del récord en `localStorage`. Claude Sonnet 4.6 también separó la lógica en un hook propio, pero llegó a esa estructura más limpia recién en la séptima iteración, después de que yo lo pidiera explícitamente. En cuanto a la persistencia del récord, Claude Sonnet 4.6 no la incluyó sin que yo la solicitara, mientras que ChatGPT5 la incorporó de forma natural al interpretar el pedido.
+
+### Manejo de caracteres especiales y encoding
+
+Yo tuve un problema concreto con Claude Sonnet 4.6: los archivos generados por terminal con PowerShell quedaron en encoding Windows-1252, lo que hizo que caracteres como `©`, `é` y `¡` se vieran como símbolos rotos en el browser. Con ChatGPT5 no tuve ese problema porque los archivos se generaron directamente desde el editor con encoding UTF-8 correcto. Yo aprendí que ese riesgo es específico del entorno de ejecución de los comandos de terminal y no de la calidad del modelo, pero igual generó una iteración extra de corrección.
+
+### Funcionalidades incluidas sin pedirlas
+
+Yo noté que Claude Sonnet 4.6 tendió a incluir cosas que yo no pedí y que después tuve que remover, como React Router, la carpeta `pages/` con navegación y constantes innecesarias para el scope del proyecto. ChatGPT5, en cambio, incluyó funcionalidades coherentes con el objetivo sin que yo las mencionara, como la persistencia del récord. Eso me generó trabajo extra de limpieza con Claude Sonnet 4.6 que con ChatGPT5 no tuve.
+
+### Calidad del código final
+
+Yo considero que ambos proyectos llegaron a un nivel de calidad similar al final del proceso. Los dos separan la lógica del juego en un hook, los dos usan TypeScript con tipos bien definidos y los dos compilan sin errores. La diferencia principal que yo veo es el camino recorrido: con ChatGPT5 llegué antes a ese estado, con menos correcciones intermedias.
+
+### Limitaciones comunes
+
+Yo identifiqué que ninguna de las dos herramientas generó tests automáticos por iniciativa propia. También las dos incluyeron estructuras de código pensadas para proyectos más grandes que este, como servicios de API y contextos globales que no se usan en la funcionalidad actual. En ese sentido, yo creo que las dos herramientas tienden a sobre-estructurar cuando el dominio del problema es acotado.
+
+---
+
 ## Conclusión sobre el uso de Claude Sonnet 4.6 para este proyecto
 
 Trabajar con Claude Sonnet 4.6 a través de GitHub Copilot para este proyecto fue una experiencia mayormente positiva y productiva. En siete iteraciones, el modelo pudo llevar un repositorio vacío a una aplicación React + TypeScript funcional con buena arquitectura.
@@ -227,3 +257,5 @@ Sin embargo, el modelo mostró una tendencia a sobre-ingenierizar la solución i
 Los problemas de encoding con Windows y las rutas de sistema operativo equivocadas muestran que el modelo puede asumir un entorno de ejecución incorrecto cuando no se lo especifica explícitamente. Para futuros proyectos, sería conveniente indicar el sistema operativo y el entorno desde el primer prompt.
 
 En resumen: Claude Sonnet 4.6 es un modelo muy capaz para tareas de desarrollo frontend estructurado, especialmente en migraciones, refactorizaciones y aplicación de buenas prácticas. Sus puntos débiles están en la gestión del entorno de ejecución y en la tendencia a agregar funcionalidad no solicitada. Con prompts más precisos desde el inicio, la cantidad de iteraciones correctivas se reduciría significativamente.
+
+Comparando las dos experiencias, yo concluyo que ChatGPT5 requirió menos iteraciones correctivas para alcanzar el mismo resultado funcional, mientras que Claude Sonnet 4.6 obligó a más ajustes intermedios aunque también llegó a un producto final de calidad equivalente. Yo creo que la diferencia más relevante fue el punto de partida: ChatGPT5 investigó el repositorio antes de generar código, lo que le permitió tomar mejores decisiones iniciales. Con prompts más precisos desde el inicio y especificando el entorno de ejecución, yo creo que la brecha en iteraciones necesarias se reduciría significativamente.

@@ -1,0 +1,1 @@
+Archivos publicos servidos directamente por Vite.
